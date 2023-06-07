@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "defines.h": "c",
+        "stdio.h": "c",
+        "sobel.h": "c"
+    }
+}
