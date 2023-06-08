@@ -10,11 +10,12 @@ SRC		=	main.c \
 			get_image.c \
 			sobel.c \
 			greyscale.c \
+			save.c \
 
 SRCS	=	$(addprefix $(SRCDIR)/, $(SRC))
 OBJ		=	$(addprefix $(BUILDDIR)/, $(SRC:.c=.o))
 
-vpath %.c	$(SRCDIR):$(SRCDIR)/error_h:$(SRCDIR)/image_h:$(SRCDIR)/sobel:$(SRCDIR)/utils
+vpath %.c	$(SRCDIR):$(SRCDIR)/error_h:$(SRCDIR)/image_h:$(SRCDIR)/parser:$(SRCDIR)/utils
 
 all: $(NAME)
 

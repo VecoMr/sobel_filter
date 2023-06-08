@@ -9,7 +9,10 @@ int main(int ac, char **av) {
         return EXIT_FAILURE;
     if (greyscale_convert(&image, &greyscale) == RETURN_FAILURE)
         return EXIT_FAILURE;
-    if (sobel_filter(ac, av) == RETURN_FAILURE)
+    save_greyscale(&greyscale, "output.ppm");
+    if (sobel_filter(&greyscale) == RETURN_FAILURE)
         return EXIT_FAILURE;
+    save_greyscale(&greyscale, "foutput.ppm");
+
     return EXIT_SUCCESS;
 }

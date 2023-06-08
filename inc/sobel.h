@@ -34,4 +34,10 @@ int get_image(int ac, char **av, ppm_t *image);
 
 // --- IMAGE_H ---
 // sobel.c
-int sobel_filter(int ac, char **av);
+int sobel_filter(ppm_greyscale_t *greyscale);
+
+// greyscale.c
+int greyscale_convert(ppm_t *image, ppm_greyscale_t *greyscale);
+
+// save.c
+int save_greyscale(ppm_greyscale_t *greyscale, char *path);

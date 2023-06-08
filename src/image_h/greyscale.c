@@ -1,6 +1,8 @@
+#include <stdlib.h>
 #include "defines.h"
 #include "sobel.h"
 
+// TODO: paralaliser cette fonction avec openmp et sans / ajout possible de cache et/ou memoization
 int greyscale_convert(ppm_t *image, ppm_greyscale_t *greyscale)
 {
     greyscale->width = image->width;
