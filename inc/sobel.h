@@ -13,6 +13,13 @@
         pixels_t **pixels;
     } ppm_t;
 
+     typedef struct ppm_greyscale_s{
+        int width;
+        int height;
+        int max_value;
+        unsigned char **pixels;
+    } ppm_greyscale_t;
+
 // --- MAIN ---
 // main.c
 int main(int ac, char **av);
