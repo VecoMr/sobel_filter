@@ -1,6 +1,6 @@
 NAME	=	sobel_filter
 CC		=	gcc
-CFLAGS	=	-Wall -Wextra -I./inc/ -g3
+CFLAGS	=	-Wall -Wextra -I./inc/ -g3 -lpthread
 
 SRCDIR	=	src
 BUILDDIR=	build

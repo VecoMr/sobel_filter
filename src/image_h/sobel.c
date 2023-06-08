@@ -10,12 +10,12 @@ int sobel_filter(ppm_greyscale_t *greyscale)
     tmp.width = greyscale->width;
     tmp.max_value = greyscale->max_value;
     tmp.pixels = malloc(sizeof(int *) * tmp.width);
-    for (int x = 0; x < greyscale->width; x++) {
-        tmp.pixels[x] = malloc(sizeof(int) * tmp.height);
-        for (int y = 0; y < greyscale->height; y++) {
+    for (int x = 0; x < greyscale->height; x++) {
+        tmp.pixels[x] = malloc(sizeof(int) * tmp.width);
+        for (int y = 0; y < greyscale->width; y++) {
             int gx = 0;
             int gy = 0;
-            if (y == 0 || x == greyscale->width - 1 || x == 0 || y == greyscale->width - 1) {
+            if (y == 0 || x == greyscale->height - 1 || x == 0 || y == greyscale->width - 1) {
                 greyscale->pixels[x][y] = 0;
                 continue;
             }
@@ -34,6 +34,6 @@ int sobel_filter(ppm_greyscale_t *greyscale)
             (&tmp)->pixels[x][y] = (int) sqrt(gx * gx + gy * gy);
         }
     }
-    save_greyscale(&tmp, "tmp.ppm");
+    save_greyscale(&tmp, "sobel_output.ppm");
     return RETURN_SUCCESS;
 }

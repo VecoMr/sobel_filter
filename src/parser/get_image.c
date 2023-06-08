@@ -10,10 +10,10 @@ static int read_ppm(char *path, ppm_t *image)
         return RETURN_FAILURE;
     }
     fscanf(file, "P3\n%d %d\n%d\n", &image->width, &image->height, &image->max_value);
-    image->pixels = malloc(sizeof(pixels_t) * image->width);
-    for (int i = 0; i < image->width; i++) {
-        image->pixels[i] = malloc(sizeof(pixels_t) * image->height);
-        for (int j = 0; j < image->height; j++) {
+    image->pixels = malloc(sizeof(pixels_t) * image->height);
+    for (int i = 0; i < image->height; i++) {
+        image->pixels[i] = malloc(sizeof(pixels_t) * image->width);
+        for (int j = 0; j < image->width; j++) {
             fscanf(file, "%d\n", &(image->pixels[i][j].r));
             fscanf(file, "%d\n", &(image->pixels[i][j].g));
             fscanf(file, "%d\n", &(image->pixels[i][j].b));
