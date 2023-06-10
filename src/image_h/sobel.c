@@ -70,6 +70,5 @@ int sobel_filter(ppm_image_t *greyscale)
         pthread_join(threads[t], NULL);
     }
     save_greyscale(&tmp, "sobel_output.ppm");
-    save_vizualizer(&tmp, "sobel_filter_visualizer.myppm");
     return RETURN_SUCCESS;
 }
