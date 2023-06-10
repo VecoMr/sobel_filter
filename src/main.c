@@ -6,10 +6,9 @@
 
 int main(int ac, char **av) {
     ppm_t image;
-    ppm_greyscale_t greyscale;
+    ppm_image_t greyscale;
 
     time_t start = time(NULL);
-    sleep(5);
 
     if (get_image(ac, av, &image) == RETURN_FAILURE)
         return EXIT_FAILURE;
@@ -19,6 +18,6 @@ int main(int ac, char **av) {
     printf("greyscale saved in output.ppm\n");
     if (sobel_filter(&greyscale) == RETURN_FAILURE)
         return EXIT_FAILURE;
-    printf("ELAPSED [%d]\n", time(NULL) - start);
+    printf("ELAPSED [%ld]\n", time(NULL) - start);
     return EXIT_SUCCESS;
 }

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h>
 #include <stdlib.h>
 #include "sobel.h"
 #include "defines.h"
@@ -25,6 +26,7 @@ static int read_ppm(char *path, ppm_t *image)
 
 int get_image(int ac, char **av, ppm_t *image)
 {
+    write(1, "LOAD START\n", 12);
     if (ac != 2) {
         print_help();
         return RETURN_FAILURE;
@@ -33,5 +35,6 @@ int get_image(int ac, char **av, ppm_t *image)
         fprintf(stderr, "Error: could not read %s\n", av[1]);
         return RETURN_FAILURE;
     }
+    write(1, "LOAD END\n", 10);
     return RETURN_SUCCESS;
 }

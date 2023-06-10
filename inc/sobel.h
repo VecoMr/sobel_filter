@@ -1,5 +1,7 @@
 #pragma once
 
+    #include <stdint.h>
+
     typedef struct pixels_s{
         int r;
         int g;
@@ -13,12 +15,14 @@
         pixels_t **pixels;
     } ppm_t;
 
-     typedef struct ppm_greyscale_s{
+     typedef struct ppm_image_s{
         int width;
         int height;
         int max_value;
         unsigned char **pixels;
-    } ppm_greyscale_t;
+        uint64_t proc_grey;
+        uint64_t proc_sobel;
+    } ppm_image_t;
 
 // --- MAIN ---
 // main.c
@@ -34,10 +38,15 @@ int get_image(int ac, char **av, ppm_t *image);
 
 // --- IMAGE_H ---
 // sobel.c
-int sobel_filter(ppm_greyscale_t *greyscale);
+int sobel_filter(ppm_image_t *greyscale);
 
 // greyscale.c
-int greyscale_convert(ppm_t *image, ppm_greyscale_t *greyscale);
+int greyscale_convert(ppm_t *image, ppm_image_t *greyscale);
 
 // save.c
-int save_greyscale(ppm_greyscale_t *greyscale, char *path);
+int save_vizualizer(ppm_image_t *image, char *path);
+int save_greyscale(ppm_image_t *greyscale, char *path);
+
+// --- UTILS ---
+// cycle.c
+uint64_t rdtsc(void);

@@ -1,6 +1,6 @@
 NAME	=	sobel_filter
 CC		=	gcc
-CFLAGS	=	-Wall -Wextra -I./inc/ -g3 -lpthread
+CFLAGS	=	-Wall -Wextra -I./inc/ -g3 -lpthread -O0
 
 SRCDIR	=	src
 BUILDDIR=	build
@@ -11,6 +11,7 @@ SRC		=	main.c \
 			sobel.c \
 			greyscale.c \
 			save.c \
+			cycle.c \
 
 SRCS	=	$(addprefix $(SRCDIR)/, $(SRC))
 OBJ		=	$(addprefix $(BUILDDIR)/, $(SRC:.c=.o))
